@@ -1,6 +1,6 @@
 # Room Service with Nextjs
 
-This is an example of Room Service with ZEIT's Nextjs.
+This is an example of Room Service with ZEIT's Nextjs. Requires [Node 8](https://nodejs.org/en/download/) or above. 
 
 ## Setup
 
