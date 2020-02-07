@@ -19,7 +19,8 @@ npm install
 
 Then, with your API key, run `npm run dev`:
 
-```
+```bash
+# This is not your secret key
 ROOM_SERVICE_SECRET=sk_live_x1opQvBO2ezjUQeywg9LL npm run dev
 ```
 

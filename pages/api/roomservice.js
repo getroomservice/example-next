@@ -6,6 +6,12 @@ function isLoggedIn() {
 }
 
 export default (req, res) => {
+  if (!process.env.ROOM_SERVICE_SECRET) {
+    throw new Error(
+      "Expected ROOM_SERVIVCE_SECRET to be defined in environment variables. See README."
+    );
+  }
+
   const client = new RoomService(process.env.ROOM_SERVICE_SECRET);
   const { room } = client.parse(req.body);
 

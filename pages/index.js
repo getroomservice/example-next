@@ -1,5 +1,5 @@
 import RoomService from "@roomservice/browser";
-import { useRoomService } from "@roomservice/react";
+import { useSharedState } from "@roomservice/react";
 import React from "react";
 
 const client = new RoomService({
@@ -7,10 +7,10 @@ const client = new RoomService({
 });
 
 export default () => {
-  const [doc, setDoc] = useRoomService(client, "my-room");
+  const [sharedState, setSharedState] = useSharedState(client, "my-room");
 
   function onClick() {
-    setDoc(prevDoc => {
+    setSharedState(prevDoc => {
       prevDoc.number = Math.floor(Math.random() * 100);
     });
   }
@@ -19,7 +19,7 @@ export default () => {
     <div>
       <h1>Open multiple browser windows!</h1>
 
-      <p>{doc.number || 0}</p>
+      <p>{sharedState.number || 0}</p>
 
       <button onClick={onClick}>Pick Random Number</button>
     </div>
