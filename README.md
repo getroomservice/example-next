@@ -1,6 +1,6 @@
 # Room Service with Nextjs
 
-This is an example of Room Service with ZEIT's Nextjs. Requires [Node 8](https://nodejs.org/en/download/) or above. 
+This is an example of Room Service with ZEIT's Nextjs. Requires [Node 8](https://nodejs.org/en/download/) or above.
 
 ## Setup
 
@@ -13,7 +13,7 @@ sk_live_x1opQvBO2ezjUQeywg9LL # this is a fake key
 Clone the repo and install the dependencies:
 
 ```
-git clone https://github.com/getroomservice/example-next.git
+git clone https://github.com/getroomservice/example-next.git roomservice-sandbox
 npm install
 ```
 
