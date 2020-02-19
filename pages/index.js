@@ -1,13 +1,8 @@
-import RoomService from "@roomservice/browser";
-import { useSharedState } from "@roomservice/react";
+import { useSharedState, RoomServiceProvider } from "@roomservice/react";
 import React from "react";
 
-const client = new RoomService({
-  authUrl: "http://localhost:3000/api/roomservice"
-});
-
-export default () => {
-  const [sharedState, setSharedState] = useSharedState(client, "my-room");
+const App = () => {
+  const [sharedState, setSharedState] = useSharedState("my-room");
 
   function onClick() {
     setSharedState(prevDoc => {
@@ -25,3 +20,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <RoomServiceProvider authUrl={"http://localhost:3000/api/roomservice"}>
+    <App />
+  </RoomServiceProvider>
+);
