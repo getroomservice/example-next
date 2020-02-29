@@ -5,7 +5,7 @@ function isLoggedIn() {
   return true;
 }
 
-export default (req, res) => {
+export default async (req, res) => {
   if (!process.env.ROOM_SERVICE_SECRET) {
     throw new Error(
       "Expected ROOM_SERVIVCE_SECRET to be defined in environment variables. See README."
@@ -13,14 +13,16 @@ export default (req, res) => {
   }
 
   const client = new RoomService(process.env.ROOM_SERVICE_SECRET);
-  const { room } = client.parse(req.body);
+  const { room } = client.parseBody(req.body);
 
   if (!isLoggedIn()) {
-    return client.reject();
+    return res.status(401).json({ message: "unauthorized" });
   }
 
-  return client.authorize(res, {
-    guest: "user-id-goes-here",
+  const body = await client.authorize({
+    user: "user-id-goes-here",
     room: room.reference
   });
+
+  res.status(200).json(body);
 };
