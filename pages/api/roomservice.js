@@ -8,7 +8,7 @@ function isLoggedIn() {
 export default async (req, res) => {
   if (!process.env.ROOM_SERVICE_SECRET) {
     throw new Error(
-      "Expected ROOM_SERVIVCE_SECRET to be defined in environment variables. See README."
+      "Expected ROOM_SERVICE_SECRET to be defined in environment variables. See README."
     );
   }
 
