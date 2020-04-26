@@ -1,4 +1,5 @@
 import RoomService from "@roomservice/node";
+require('dotenv').config();
 
 // Implement your own accounts here!
 function isLoggedIn() {
